@@ -4,7 +4,7 @@ function addTodo() {
     const todoInput = document.getElementById('todo-input');
     const dateInput = document.getElementById('date-input');
     const todoText = todoInput.value.trim();
-    const dueDate = dateInput.value;
+    const dueDate = dateInput.dataset.date || '';
 
     if (todoText === '') {
         showValidationError('Tolong masukkan Todo-List.');
@@ -48,6 +48,7 @@ function addTodo() {
     todos.push(todo);
     todoInput.value = '';
     dateInput.value = '';
+    delete dateInput.dataset.date;
     displayTodos();
     showSuccessMessage('To-do item berhasil ditambah!');
 }
@@ -202,12 +203,38 @@ function filterTodos() {
     displayTodos(filter);
 }
 
+function initDatePicker() {
+    const dateInput = document.getElementById('date-input');
+    const datePicker = document.createElement('input');
+    datePicker.type = 'date';
+    datePicker.style.position = 'absolute';
+    datePicker.style.opacity = '0';
+    datePicker.style.pointerEvents = 'none';
+
+    dateInput.parentNode.appendChild(datePicker);
+
+    dateInput.addEventListener('click', function() {
+        datePicker.showPicker();
+    });
+
+    datePicker.addEventListener('change', function() {
+        const selectedDate = new Date(this.value);
+        const day = String(selectedDate.getDate()).padStart(2, '0');
+        const month = String(selectedDate.getMonth() + 1).padStart(2, '0');
+        const year = selectedDate.getFullYear();
+        const formattedDate = `${day}/${month}/${year}`;
+
+        dateInput.value = formattedDate;
+        dateInput.dataset.date = this.value; // Store ISO date for validation
+    });
+}
+
 // Event listeners
+document.addEventListener('DOMContentLoaded', initDatePicker);
 document.getElementById('add-btn').addEventListener('click', addTodo);
 document.getElementById('filter-select').addEventListener('change', filterTodos);
 document.getElementById('cancel-delete').addEventListener('click', hideDeleteModal);
 document.getElementById('confirm-delete').addEventListener('click', confirmDelete);
-
 
 document.getElementById('delete-modal').addEventListener('click', function(e) {
     if (e.target === this) {

@@ -11,8 +11,8 @@ body {
 }
 
 .completed {
-    text-decoration: line-through;
-    color: gray;
+    background-color: #f0f9ff;
+    color: #64748b;
 }
 
 @keyframes fadeIn {

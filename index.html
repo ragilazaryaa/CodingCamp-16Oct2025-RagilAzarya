@@ -12,7 +12,14 @@
         <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-6 md:mb-8 text-center bg-gradient-to-r from-slate-600 to-gray-800 bg-clip-text text-transparent animate-pulse">To-Do List</h1>
         <form id="todo-form" class="mb-6 md:mb-8 space-y-4 md:space-y-6">
             <input type="text" id="todo-input" placeholder="Enter a to-do item" class="w-full p-3 md:p-4 border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-slate-500 focus:border-transparent transition duration-300 shadow-sm text-sm md:text-base" required>
-            <input type="date" id="date-input" class="w-full p-3 md:p-4 border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-slate-500 focus:border-transparent transition duration-300 shadow-sm text-sm md:text-base" required>
+            <div class="relative">
+                <input type="text" id="date-input" class="w-full p-3 md:p-4 pl-4 pr-10 border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-slate-500 focus:border-transparent transition duration-300 shadow-sm text-sm md:text-base" placeholder="dd/mm/yyyy" readonly required>
+                <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+                    <svg class="w-5 h-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                    </svg>
+                </div>
+            </div>
             <button type="button" id="add-btn" class="w-full bg-gradient-to-r from-slate-600 to-gray-700 hover:from-slate-700 hover:to-gray-800 text-white p-3 md:p-4 rounded-xl font-semibold transform hover:scale-105 transition duration-300 shadow-lg text-sm md:text-base">Add To-Do</button>
         </form>
         <div class="mb-6 md:mb-8">
