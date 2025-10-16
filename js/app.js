@@ -185,19 +185,6 @@ function confirmDelete() {
     hideDeleteModal();
 }
 
-function editTodo(id) {
-    const todo = todos.find(t => t.id === id);
-    if (todo) {
-        const newText = prompt('Edit To-Do:', todo.text);
-        const newDate = prompt('Edit Due Date:', todo.date);
-        if (newText !== null && newDate !== null) {
-            todo.text = newText.trim();
-            todo.date = newDate;
-            displayTodos();
-        }
-    }
-}
-
 function filterTodos() {
     const filter = document.getElementById('filter-select').value;
     displayTodos(filter);
