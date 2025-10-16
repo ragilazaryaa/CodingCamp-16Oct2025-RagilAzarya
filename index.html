@@ -40,25 +40,25 @@
                         <th class="border border-slate-300 p-3 md:p-5 text-left font-semibold text-slate-700 text-sm md:text-lg">Actions</th>
                     </tr>
                 </thead>
-                <tbody id="todo-list" class="animate-fade-in">
+                <tbody id="todo-list">
                 </tbody>
             </table>
         </div>
     </div>
 
-    <div id="delete-modal" class="fixed inset-0 bg-black bg-opacity-50 hidden flex items-center justify-center z-50">
-        <div class="bg-white rounded-2xl p-6 md:p-8 max-w-md mx-4 shadow-2xl transform transition-all duration-300 scale-95 opacity-0" id="modal-content">
+    <div id="delete-modal" class="fixed inset-0 bg-black bg-opacity-50 hidden flex items-center justify-center z-50 p-4">
+        <div class="bg-white rounded-2xl p-4 sm:p-6 md:p-8 max-w-xs sm:max-w-sm md:max-w-md w-full mx-4 shadow-2xl transform transition-all duration-300 scale-95 opacity-0" id="modal-content">
             <div class="text-center">
-                <div class="mx-auto flex items-center justify-center h-16 w-16 rounded-full bg-red-100 mb-4">
-                    <svg class="h-8 w-8 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <div class="mx-auto flex items-center justify-center h-12 w-12 sm:h-16 sm:w-16 rounded-full bg-red-100 mb-3 sm:mb-4">
+                    <svg class="h-6 w-6 sm:h-8 sm:w-8 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L4.082 16.5c-.77.833.192 2.5 1.732 2.5z" />
                     </svg>
                 </div>
-                <h3 class="text-lg md:text-xl font-semibold text-gray-900 mb-2">Delete To-Do Item</h3>
-                <p class="text-sm md:text-base text-gray-600 mb-6">Are you sure you want to delete this to-do item? This action cannot be undone.</p>
-                <div class="flex flex-col sm:flex-row gap-3 justify-center">
-                    <button id="cancel-delete" class="px-4 py-2 bg-gray-200 hover:bg-gray-300 text-gray-800 rounded-lg transition duration-200 font-medium">Cancel</button>
-                    <button id="confirm-delete" class="px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-lg transition duration-200 font-medium">Delete</button>
+                <h3 class="text-base sm:text-lg md:text-xl font-semibold text-gray-900 mb-2">Delete To-Do Items</h3>
+                <p class="text-xs sm:text-sm md:text-base text-gray-600 mb-4 sm:mb-6">Apakah kamu yakin hapus ini?</p>
+                <div class="flex flex-col sm:flex-row gap-2 sm:gap-3 justify-center">
+                    <button id="cancel-delete" class="px-3 sm:px-4 py-2 bg-gray-200 hover:bg-gray-300 text-gray-800 rounded-lg transition duration-200 font-medium text-sm sm:text-base">Cancel</button>
+                    <button id="confirm-delete" class="px-3 sm:px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-lg transition duration-200 font-medium text-sm sm:text-base">Delete</button>
                 </div>
             </div>
         </div>
